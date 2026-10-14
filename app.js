@@ -200,9 +200,10 @@ const recipes = [
   "minutes": 30,
   "servings": "3 small plates",
   "difficulty": "Easy",
-  "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer%20tikka.jpg",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Paneer_tikka.jpg",
+  "fallbackImageUrl": "https://images.pexels.com/photos/3928854/pexels-photo-3928854.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "source": "https://commons.wikimedia.org/wiki/File:Paneer_tikka.jpg",
-  "photographer": "Meghana Mohanty (CC BY-SA 4.0)",
+  "photographer": "Meghana Mohanty / Wikimedia Commons (CC BY-SA 4.0)",
   "desc": "Paneer cubes in a spiced yogurt marinade, roasted until lightly charred and served as a warm sharing plate.",
   "ingredients": [
     "250 g paneer, cut into large cubes",
@@ -505,6 +506,14 @@ const imageFor = (r, w=900) => r.imageUrl || photo(r.image, w);
 // Never substitute generated imagery or an unrelated meal if a photo fails to load.
 // Show a quiet, typographic placeholder instead; the recipes remain readable.
 function photoUnavailable(img) {
+  // Try the recipe's verified, photographer-sourced alternative before showing a placeholder.
+  // This prevents a failure on one image host from blanking the recipe card.
+  const backup = img.dataset.fallback;
+  if (backup && !img.dataset.triedFallback) {
+    img.dataset.triedFallback = '1';
+    img.src = backup;
+    return;
+  }
   img.onerror = null;
   const container = img.closest('.recipe-image, figure, .modal-cover-photo');
   if (container) {
@@ -520,17 +529,17 @@ function setActiveChip() { filters.forEach(b=>{const active=!savedOnly && b.data
 function renderRecipes(){
   const query=searchInput.value.toLocaleLowerCase().trim();
   const visible=recipes.filter(r=>(!savedOnly&&(activeCategory==='All'||r.category===activeCategory)||savedOnly&&saved.has(r.id))&&(!query||`${r.name} ${r.desc} ${r.category} ${r.ingredients.join(' ')}`.toLowerCase().includes(query)));
-  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" alt="Food photograph illustrating ${r.name}" loading="lazy" onerror="photoUnavailable(this)"/><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.category==='Mains'?'MEALS':r.category.toUpperCase()} &nbsp; / &nbsp; ${r.time}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>${r.difficulty} &nbsp; · &nbsp; ${r.servings}</span><button type="button" data-open="${r.id}">Read recipe ↗</button></div></div></article>`).join('');
+  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" data-fallback="${r.fallbackImageUrl || ''}" alt="Food photograph illustrating ${r.name}" loading="lazy" onerror="photoUnavailable(this)"/><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.category==='Mains'?'MEALS':r.category.toUpperCase()} &nbsp; / &nbsp; ${r.time}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>${r.difficulty} &nbsp; · &nbsp; ${r.servings}</span><button type="button" data-open="${r.id}">Read recipe ↗</button></div></div></article>`).join('');
   el('resultsLine').textContent=`${savedOnly?'Your saved recipes':activeCategory==='All'?'All recipes':activeCategory} · ${visible.length} ${visible.length===1?'recipe':'recipes'}`;
   el('emptyState').hidden=visible.length>0;
   setActiveChip();
 }
 function toggleSaved(id){ const r=recipes.find(item=>item.id===id); if(!r)return; if(saved.has(id)){saved.delete(id);notify('Removed from your saved recipes.');}else{saved.add(id);notify('Recipe saved.');}persistSaved();renderRecipes();if(currentRecipe?.id===id) updateModalSave(); }
-function modalMarkup(r){return `<div class="modal-cover-photo"><img class="modal-cover" src="${imageFor(r,1250)}" alt="Food photography illustrating ${r.name}" onerror="photoUnavailable(this)" /></div><div class="modal-inner"><p class="recipe-photo-credit">Photo: <a href="${r.source}" target="_blank" rel="noopener noreferrer">${r.photographer || 'Photographer source'} ↗</a> · Illustration of the dish; not a photograph of our tested recipe.</p><p class="kicker">${r.category.toUpperCase()} / ${r.label}</p><h2>${r.name}</h2><p class="modal-intro">${r.desc}</p><div class="modal-tags"><span>◷ ${r.time}</span><span>◌ ${r.servings}</span><span>✳ No onion or garlic</span><span>♧ Vegetarian</span></div><div class="modal-cols"><div><h3>What you'll need.</h3><ul class="ingredients">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div><div><h3>Let's make it.</h3><ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="modal-tip"><strong>A little kitchen note:</strong> ${r.tip}</div></div></div><div class="modal-actions"><button type="button" class="btn btn-primary" id="modalSave">${saved.has(r.id)?'♥ Saved recipe':'♡ Save this recipe'}</button><button type="button" class="outline-btn" id="printRecipe">Print recipe ↗</button></div></div>`;}
+function modalMarkup(r){return `<div class="modal-cover-photo"><img class="modal-cover" src="${imageFor(r,1250)}" data-fallback="${r.fallbackImageUrl || ''}" alt="Food photography illustrating ${r.name}" onerror="photoUnavailable(this)" /></div><div class="modal-inner"><p class="recipe-photo-credit">Photo: <a href="${r.source}" target="_blank" rel="noopener noreferrer">${r.photographer || 'Photographer source'} ↗</a> · Illustration of the dish; not a photograph of our tested recipe.</p><p class="kicker">${r.category.toUpperCase()} / ${r.label}</p><h2>${r.name}</h2><p class="modal-intro">${r.desc}</p><div class="modal-tags"><span>◷ ${r.time}</span><span>◌ ${r.servings}</span><span>✳ No onion or garlic</span><span>♧ Vegetarian</span></div><div class="modal-cols"><div><h3>What you'll need.</h3><ul class="ingredients">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div><div><h3>Let's make it.</h3><ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="modal-tip"><strong>A little kitchen note:</strong> ${r.tip}</div></div></div><div class="modal-actions"><button type="button" class="btn btn-primary" id="modalSave">${saved.has(r.id)?'♥ Saved recipe':'♡ Save this recipe'}</button><button type="button" class="outline-btn" id="printRecipe">Print recipe ↗</button></div></div>`;}
 function updateModalSave(){const button=el('modalSave');if(currentRecipe&&button)button.textContent=saved.has(currentRecipe.id)?'♥ Saved recipe':'♡ Save this recipe';}
 function openModal(id){const r=recipes.find(item=>item.id===id);if(!r)return;lastFocus=document.activeElement;currentRecipe=r;el('modalBody').innerHTML=modalMarkup(r);el('modalBackdrop').hidden=false;el('recipeModal').hidden=false;el('recipeModal').setAttribute('aria-hidden','false');el('recipeModal').scrollTop=0;document.body.classList.add('modal-open');el('modalClose').focus();}
 function closeModal(){if(el('recipeModal').hidden)return;el('modalBackdrop').hidden=true;el('recipeModal').hidden=true;el('recipeModal').setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');currentRecipe=null;if(lastFocus&&document.contains(lastFocus))lastFocus.focus();}
-function pickMenu(){const choose=(category)=>{const pool=recipes.filter(r=>r.category===category);return pool[Math.floor(Math.random()*pool.length)];};const picks=[['Morning',choose('Breakfast')],['Midday',choose('Mains')],['A little snack',choose('Snacks')]];el('dailyPlan').innerHTML=`<div class="daily-plan-header"><h3>A little menu, just for today.</h3><span class="kicker">FRESH IDEAS ✳</span></div><div class="day-grid">${picks.map(([name,r])=>`<button type="button" class="day-pick" data-open="${r.id}"><img alt="${r.name}" src="${imageFor(r,280)}" loading="lazy" onerror="photoUnavailable(this)"><span><small>${name}</small><strong>${r.name}</strong></span></button>`).join('')}</div>`;el('dailyPlan').hidden=false;el('dailyPlan').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function pickMenu(){const choose=(category)=>{const pool=recipes.filter(r=>r.category===category);return pool[Math.floor(Math.random()*pool.length)];};const picks=[['Morning',choose('Breakfast')],['Midday',choose('Mains')],['A little snack',choose('Snacks')]];el('dailyPlan').innerHTML=`<div class="daily-plan-header"><h3>A little menu, just for today.</h3><span class="kicker">FRESH IDEAS ✳</span></div><div class="day-grid">${picks.map(([name,r])=>`<button type="button" class="day-pick" data-open="${r.id}"><img alt="${r.name}" src="${imageFor(r,280)}" data-fallback="${r.fallbackImageUrl || ''}" loading="lazy" onerror="photoUnavailable(this)"><span><small>${name}</small><strong>${r.name}</strong></span></button>`).join('')}</div>`;el('dailyPlan').hidden=false;el('dailyPlan').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function resetFilters(){savedOnly=false;activeCategory='All';searchInput.value='';renderRecipes();}
 
 // Delegated actions also work after cards are re-rendered.

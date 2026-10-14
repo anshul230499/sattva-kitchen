@@ -36,3 +36,10 @@ Uses system Abadi if installed, otherwise the web font Jost at light weights. No
 - Replaced an unrelated chickpea picture on the makhana recipe with an actual roasted makhana photograph by Talupu (Wikimedia Commons CC BY-SA 4.0).
 - Removed all AI fallbacks from hero, featured section, recipe grid, meal suggestions, and recipe dialog. Photo credits are available in the recipe panel and on the credits page.
 - Images were not downloaded or bundled; availability depends on the external photo providers. Some photographs represent a similar dish rather than the exact listed ingredients.
+
+## Paneer Tikka Bites photo fix
+
+- Replaced the broken Wikimedia `Special:Redirect` endpoint with the direct Wikimedia Commons JPEG `https://upload.wikimedia.org/wikipedia/commons/f/f2/Paneer_tikka.jpg` (photograph by Meghana Mohanty, CC BY-SA 4.0).
+- Added a second **real photograph** by Abhishek Mahajan (Pexels) as an automatic image fallback in the recipe card, detail view and menu picker. Attribution appears in `credits.html`.
+- These are externally hosted photographs, **not bundled photos**, and may still be unavailable if a visitor's network blocks both external hosts. For guaranteed availability, the licensed image should be downloaded and stored within the project's `assets/` directory; no local image download was possible in this build environment.
+- The image is illustrative. Visible accompaniments in the photograph may differ from the onion-free recipe.
