@@ -200,10 +200,10 @@ const recipes = [
   "minutes": 30,
   "servings": "3 small plates",
   "difficulty": "Easy",
-  "imageUrl": "https://images.pexels.com/photos/3928854/pexels-photo-3928854.jpeg?auto=compress&cs=tinysrgb&w=1000",
-  "source": "https://www.pexels.com/photo/food-on-a-plate-3928854/",
-  "photographer": "Abhishek Mahajan",
-  "desc": "Juicy paneer cubes with a golden yogurt marinade, roasted until gently charred.",
+  "imageUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paneer%20tikka.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Paneer_tikka.jpg",
+  "photographer": "Meghana Mohanty (CC BY-SA 4.0)",
+  "desc": "Paneer cubes in a spiced yogurt marinade, roasted until lightly charred and served as a warm sharing plate.",
   "ingredients": [
     "250 g paneer, cut into large cubes",
     "¼ cup plain yogurt",
@@ -223,7 +223,7 @@ const recipes = [
     "Spread out the paneer and bake 10–12 minutes, turning once, until edges begin to color.",
     "Serve immediately with fresh mint and lemon."
   ],
-  "tip": "Make sure the yogurt marinade contains no onion or garlic. The illustrative photo may include accompaniments not used in this recipe.",
+  "tip": "Use thick yogurt so the marinade clings well, and keep the seasoning simple. For a fuller platter, thread the paneer and bell pepper onto skewers before roasting.",
   "new": true
 },
 {
