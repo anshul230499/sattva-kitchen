@@ -1,4 +1,13 @@
 const credits = [
+ ['Alina Matveycheva','Illustrative photograph for Rose & Cardamom Lassi','https://www.pexels.com/photo/love-relaxation-summer-glass-17379741/'],
+ ['Shameel mukkath','Illustrative photograph for Saffron & Almond Milk','https://www.pexels.com/photo/two-glasses-of-milk-with-cinnamon-and-nuts-15082977/'],
+ ['Timur Weber','Illustrative photograph for Cucumber, Mint & Cumin Chaas','https://www.pexels.com/photo/drink-with-cucumber-slices-8679635/'],
+ ['Nourishment DECODED','Illustrative photograph for Warm Sweet Potato Chaat','https://www.pexels.com/photo/close-up-of-food-on-bowl-10497774/'],
+ ['Abhishek Mahajan','Illustrative photograph for Sunshine Paneer Tikka Bites','https://www.pexels.com/photo/food-on-a-plate-3928854/'],
+ ['Anil Sharma','Illustrative photograph for Silky Mango Shrikhand','https://www.pexels.com/photo/gourmet-mango-dessert-with-fresh-toppings-31625025/'],
+ ['Deep Dasgupta','Illustrative photograph for Slow-Simmered Saffron Kheer','https://www.pexels.com/photo/traditional-indian-kheer-in-ceramic-bowl-31109623/'],
+ ['Jack Baghel','Illustrative photograph for Garden Vegetable Upma','https://www.pexels.com/photo/indian-round-dish-with-spices-and-sauces-on-the-side-20408458/'],
+ ['Shiva Kumar','Illustrative photograph for Cashew & Curry Leaf Lemon Rice','https://www.pexels.com/photo/lemon-rice-on-a-ceramic-bowl-4595316/'],
  ['Zoshua Colah','Vegetarian thali','https://unsplash.com/photos/indian-thalis-with-rice-and-a-variety-of-dishes-adzbTddUg68'],
  ['fuseviews','Indian thali','https://unsplash.com/photos/a-metal-tray-topped-with-different-types-of-food-bKmSUcAGrvI'],
  ['Dimitris Asproloupos','Banana oatmeal','https://unsplash.com/photos/a-bowl-of-oatmeal-with-banana-slices-on-top-qzRVPgqSWn4'],

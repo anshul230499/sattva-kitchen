@@ -267,3 +267,25 @@ h1 em,h2 em,h3 em{font-family:inherit;font-weight:300;font-style:normal;color:#8
   .footer-brand strong{font-size:27px}
   .modal-inner h2{font-size:41px}
 }
+
+
+/* NEW IN THE KITCHEN · bright gourmet editorial feature */
+.featured-section{background:#faf7ef;border-top:1px solid #eee9df;border-bottom:1px solid #e9e3d7;padding:84px 0 96px;overflow:hidden}
+.featured-layout{display:grid;grid-template-columns:49% 51%;align-items:center;gap:0;max-width:1230px}
+.featured-visual{min-height:510px;position:relative;isolation:isolate}
+.featured-visual img{height:510px;width:90%;object-fit:cover;object-position:50% 52%;border-radius:230px 230px 2px 2px;filter:saturate(.91) brightness(1.045)}
+.featured-visual::after{content:'';position:absolute;border:1px solid #d3b88a;z-index:-1;inset:28px 6% -25px 24px;border-radius:230px 230px 3px 3px}
+.featured-seal{position:absolute;right:5%;bottom:48px;background:#fffdf8;padding:17px 20px;box-shadow:0 10px 24px #38312014;font-size:9px;letter-spacing:2.2px;color:#846b45;font-weight:500;transform:rotate(5deg)}
+.featured-seal b{font-size:21px;vertical-align:middle;padding-left:8px;color:#ad9d72;font-weight:300}
+.featured-copy{padding:0 5% 0 11%;position:relative}
+.feature-number{color:#a19888;font-size:11px;letter-spacing:3px;margin:0 0 22px}
+.featured-copy h2{font:300 clamp(50px,5.2vw,78px)/1.01 var(--sans);letter-spacing:-.065em;margin:0 0 20px;color:#352f22;max-width:540px}
+.featured-copy h2 em{font-style:normal;color:#a29b75}
+.featured-name{font-size:22px;letter-spacing:-.03em;color:#71644c;margin-bottom:15px;font-weight:400}
+.featured-description{font-size:16px;color:#777160;line-height:1.76;max-width:420px;font-weight:300;margin-bottom:23px}
+.featured-meta{display:flex;gap:17px;flex-wrap:wrap;margin:0 0 33px;font-size:10px;letter-spacing:1.3px;color:#9b8b71}
+.featured-copy .btn{font-weight:400;letter-spacing:.4px;border-radius:45px;padding:17px 27px}
+.featured-aside{font-size:11px;color:#958b7a;margin-top:32px;line-height:1.7;max-width:440px}
+.recipe-tag{letter-spacing:1.05px}
+@media(max-width:900px){.featured-section{padding:72px 0 80px}.featured-layout{grid-template-columns:45% 55%}.featured-visual,.featured-visual img{height:450px;min-height:0}.featured-copy{padding:0 0 0 9%}.featured-copy h2{font-size:clamp(45px,5.4vw,64px)}.featured-seal{right:0;padding:12px}}
+@media(max-width:680px){.featured-section{padding:45px 0 65px}.featured-layout{display:flex;flex-direction:column;gap:48px;padding:0 22px}.featured-visual{height:355px;min-height:0;width:100%;max-width:390px}.featured-visual img{height:355px;width:92%;border-radius:175px 175px 2px 2px}.featured-visual::after{inset:20px 1% -18px 19px;border-radius:170px 170px 3px 3px}.featured-seal{right:0;bottom:16px;font-size:8px}.featured-copy{padding:0;width:100%}.featured-copy h2{font-size:clamp(52px,11vw,74px);max-width:450px}.featured-name{font-size:19px}.featured-description{font-size:15px;margin-bottom:20px}.featured-meta{gap:12px}.featured-aside{font-size:11px}}

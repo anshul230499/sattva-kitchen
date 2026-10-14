@@ -5,7 +5,9 @@ A fully functional responsive vegetarian sattvic recipe website. No build tools 
 ## Features
 
 - Elegant editorial homepage and collections
-- 12 vegetarian, no-onion, no-garlic recipes with real ingredients and directions
+- New mango-lassi spotlight with sunny editorial food illustration
+- 12 additional full recipes: mango lassi, rose lassi, saffron milk, chaas, sabudana tikki, sweet potato chaat, paneer tikka, mango shrikhand, saffron kheer, coconut peda, upma and lemon rice
+- 24 vegetarian, no-onion, no-garlic recipes with real ingredients and directions
 - Category filters and ingredient/name search
 - Favorite recipes saved locally in the visitor's browser (localStorage)
 - Recipe-detail dialog with print button, keyboard and Escape handling
@@ -33,7 +35,7 @@ Then visit http://localhost:8080.
 
 ## Notes
 
-- Hero and collection imagery is locally included under `assets/` and does not require an internet connection. Recipe photos are loaded remotely from Unsplash and require an internet connection. The photo credits page contains photographer links and the photo source URLs. Photos are illustrative, not the specific recipes prepared here.
+- Hero, collection, and illustrated mango-lassi feature imagery is locally included under `assets/` and does not require an internet connection. Some recipe photos are loaded remotely from Unsplash and Pexels and require an internet connection. The photo credits page contains photographer links and the photo source URLs. Photos are illustrative, not the specific recipes prepared here.
 - Recipes draw from multiple sattvic approaches. Customs differ, particularly around fermentation, dairy, fruit pairings, and spices. Adjust to your tradition. No medical or nutritional claims are intended.
 - There is no mailing list, server, payments, or analytics. Saved recipes exist only in each visitor's browser.
 - Original website concept, code and recipe text can be edited freely. Respect third-party photography rights.
