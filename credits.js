@@ -11,6 +11,7 @@ const credits = [
  ['Abhishek Mahajan','Illustrative photograph for Sunshine Paneer Tikka Bites','https://www.pexels.com/photo/food-on-a-plate-3928854/'],
  ['Anil Sharma','Illustrative photograph for Silky Mango Shrikhand','https://www.pexels.com/photo/gourmet-mango-dessert-with-fresh-toppings-31625025/'],
  ['Deep Dasgupta','Illustrative photograph for Slow-Simmered Saffron Kheer','https://www.pexels.com/photo/traditional-indian-kheer-in-ceramic-bowl-31109623/'],
+ ['Konstantin Klimov','Illustrative coconut and pistachio sweets photograph','https://www.pexels.com/photo/cookies-on-plate-11224770/'],
  ['Jack Baghel','Illustrative photograph for Garden Vegetable Upma','https://www.pexels.com/photo/indian-round-dish-with-spices-and-sauces-on-the-side-20408458/'],
  ['Shiva Kumar','Illustrative photograph for Cashew & Curry Leaf Lemon Rice','https://www.pexels.com/photo/lemon-rice-on-a-ceramic-bowl-4595316/'],
  ['Zoshua Colah','Vegetarian thali','https://unsplash.com/photos/indian-thalis-with-rice-and-a-variety-of-dishes-adzbTddUg68'],
@@ -19,11 +20,11 @@ const credits = [
  ['Dane Deaner','Fruit and granola bowl','https://unsplash.com/photos/close-up-photo-of-fruits-on-bowl-pVm2awTOPZo'],
  ['Mayur Roxan','Idlis and chutneys','https://unsplash.com/photos/idli-with-various-chutneys-served-on-a-banana-leaf-V0pCYv4_ZZ0'],
  ['Elena Leya','Vegetable soup','https://unsplash.com/photos/two-bowls-of-soup-with-peas-carrots-and-broccoli-RHLtemkEAaM'],
- ['Tanya Barrow','Makhana snacks','https://unsplash.com/photos/bowl-of-roasted-chickpeas-with-dipping-sauces-on-table-g5WKNwMoWCA'],
+ ['Talupu (CC BY-SA 4.0; displayed cropped via CSS)','Roasted makhana photograph','https://commons.wikimedia.org/wiki/File:Roasted_and_spiced_Foxnuts_(Phool_Makhana).jpg'],
  ['Alaap D','South Indian breakfast table','https://unsplash.com/photos/a-table-full-of-food-Fv3uNhZVMJU'],
  ['Rebecca Hansen','Fresh fruit plate','https://unsplash.com/photos/sliced-blueberries-banana-and-pineapple-fruits-in-plate-hRmk-FMpofc'],
  ['Dipesh Gurav','Vegetable soup','https://unsplash.com/photos/vegetable-soup-in-gray-bowl-NfoGcdYy_sw'],
- ['Sumit Bhatia','Paneer and rice bowl','https://unsplash.com/photos/a-colorful-bowl-of-rice-chickpeas-salmon-and-salad-HohIHrmr_E0'],
+ ['Kunal Lakhotia','Dal and rice photograph','https://www.pexels.com/photo/indian-dal-and-rice-in-traditional-utensils-28674705/'],
  ['Jonathan Borba','Coconut confectionery','https://unsplash.com/photos/sweet-coconut-balls-topped-with-white-cream-PzbjGm6EPhE'],
  ['Swarnim Doegar','Herbal tea','https://unsplash.com/photos/a-cup-of-herbal-tea-with-mint-leaves-WcVLb9HIMrk']
 ];

@@ -297,9 +297,9 @@ const recipes = [
   "minutes": 25,
   "servings": "12 small pedas",
   "difficulty": "Easy",
-  "imageUrl": "assets/kesar-peda.webp",
-  "source": "",
-  "photographer": "Sattva Kitchen / original AI illustration",
+  "imageUrl": "https://images.pexels.com/photos/11224770/pexels-photo-11224770.jpeg?auto=compress&cs=tinysrgb&w=1000",
+  "source": "https://www.pexels.com/photo/cookies-on-plate-11224770/",
+  "photographer": "Konstantin Klimov / Pexels",
   "desc": "Tender milk-and-coconut sweets dressed with pistachios and a hint of saffron.",
   "ingredients": [
     "1½ cups desiccated unsweetened coconut",
@@ -409,7 +409,7 @@ const recipes = [
   },
   {
     id: 'makhana', name: 'Golden Ghee-Roasted Makhana', category: 'Snacks', label: 'LITTLE CRUNCH', time: '12 min', minutes: 12, servings: '2 snack bowls', difficulty: 'Easy',
-    image: 'photo-1776765828683-eb5ec29711e2', source: 'https://unsplash.com/photos/bowl-of-roasted-chickpeas-with-dipping-sauces-on-table-g5WKNwMoWCA', photographer: 'Tanya Barrow',
+    imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Roasted_and_spiced_Foxnuts_%28Phool_Makhana%29.jpg/960px-Roasted_and_spiced_Foxnuts_%28Phool_Makhana%29.jpg", source: "https://commons.wikimedia.org/wiki/File:Roasted_and_spiced_Foxnuts_(Phool_Makhana).jpg", photographer: "Talupu / Wikimedia Commons · CC BY-SA 4.0",
     desc: 'Light, crunchy lotus seeds tossed with cumin, turmeric, and just a touch of rock salt.',
     ingredients: ['2 cups plain makhana (fox nuts)','1½ tsp ghee','¼ tsp ground cumin','A pinch of turmeric','A pinch of rock salt','A pinch of black pepper (optional)'],
     steps: ['Place makhana in a dry pan over low heat. Stir for 5–7 minutes until crisp all the way through.','Add ghee and toss evenly.','Sprinkle in cumin, turmeric, and salt; stir for another minute without scorching the spices.','Let cool for 2 minutes. They will crisp up further as they rest.'],
@@ -449,7 +449,7 @@ const recipes = [
   },
   {
     id: 'paneer', name: 'Mild Paneer & Green Rice Bowl', category: 'Mains', label: 'A LITTLE NOURISHMENT', time: '30 min', minutes: 30, servings: '2 bowls', difficulty: 'Easy',
-    image: 'photo-1771074168436-8692a866cdb1', source: 'https://unsplash.com/photos/a-colorful-bowl-of-rice-chickpeas-salmon-and-salad-HohIHrmr_E0', photographer: 'Sumit Bhatia',
+    imageUrl: "https://images.pexels.com/photos/28674705/pexels-photo-28674705.jpeg?auto=compress&cs=tinysrgb&w=1000", source: "https://www.pexels.com/photo/indian-dal-and-rice-in-traditional-utensils-28674705/", photographer: "Kunal Lakhotia / Pexels",
     desc: 'Golden paneer, fluffy cumin rice, peas, and fresh greens in one generous bowl.',
     ingredients: ['150 g plain paneer, cubed','1 cup cooked basmati rice','½ cup peas','1 cup baby spinach','1 tbsp ghee','½ tsp cumin seeds','¼ tsp turmeric','½ tsp ground coriander','Salt to taste','Fresh coriander leaves','Lemon wedge (optional)'],
     steps: ['Warm half the ghee and gently sear paneer cubes until lightly golden; remove from pan.','Add remaining ghee and cumin seeds. Stir in peas with a tablespoon of water and cook until tender.','Add turmeric, coriander powder, spinach and a little salt. Cook until just wilted.','Stir in warm cooked rice and paneer, tossing gently to combine.','Finish with chopped coriander and optional lemon.'],
@@ -501,8 +501,18 @@ let toastTimer;
 let saved = new Set();
 try { saved = new Set(JSON.parse(localStorage.getItem('sattvaSaved') || '[]').filter(id => recipes.some(r => r.id === id))); } catch (_) { saved = new Set(); }
 
-const imageFor = (r, w=900) => r.imageUrl || (r.image?.startsWith('assets/') ? r.image : photo(r.image,w));
-const fallbackFor = (r) => 'assets/' + ({Breakfast:'breakfast.webp',Mains:'mains.webp',Snacks:'snacks.webp',Sweets:'sweets.webp',Drinks:'drinks.webp'}[r.category] || 'breakfast.webp');
+const imageFor = (r, w=900) => r.imageUrl || photo(r.image, w);
+// Never substitute generated imagery or an unrelated meal if a photo fails to load.
+// Show a quiet, typographic placeholder instead; the recipes remain readable.
+function photoUnavailable(img) {
+  img.onerror = null;
+  const container = img.closest('.recipe-image, figure, .modal-cover-photo');
+  if (container) {
+    container.classList.add('image-unavailable');
+    container.setAttribute('data-photo-status', 'Photo unavailable');
+  }
+  img.style.visibility = 'hidden';
+}
 function persistSaved() {try {localStorage.setItem('sattvaSaved',JSON.stringify([...saved]));}catch (_) {} el('savedCount').textContent=saved.size;}
 function notify(msg) { const toast=el('toast'); toast.textContent=msg; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>toast.classList.remove('show'),2600); }
 function scrollRecipes() { el('recipes').scrollIntoView({behavior:'smooth',block:'start'}); }
@@ -510,17 +520,17 @@ function setActiveChip() { filters.forEach(b=>{const active=!savedOnly && b.data
 function renderRecipes(){
   const query=searchInput.value.toLocaleLowerCase().trim();
   const visible=recipes.filter(r=>(!savedOnly&&(activeCategory==='All'||r.category===activeCategory)||savedOnly&&saved.has(r.id))&&(!query||`${r.name} ${r.desc} ${r.category} ${r.ingredients.join(' ')}`.toLowerCase().includes(query)));
-  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" alt="Food photograph illustrating ${r.name}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackFor(r)}'"/><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.category==='Mains'?'MEALS':r.category.toUpperCase()} &nbsp; / &nbsp; ${r.time}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>${r.difficulty} &nbsp; · &nbsp; ${r.servings}</span><button type="button" data-open="${r.id}">Read recipe ↗</button></div></div></article>`).join('');
+  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" alt="Food photograph illustrating ${r.name}" loading="lazy" onerror="photoUnavailable(this)"/><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.category==='Mains'?'MEALS':r.category.toUpperCase()} &nbsp; / &nbsp; ${r.time}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>${r.difficulty} &nbsp; · &nbsp; ${r.servings}</span><button type="button" data-open="${r.id}">Read recipe ↗</button></div></div></article>`).join('');
   el('resultsLine').textContent=`${savedOnly?'Your saved recipes':activeCategory==='All'?'All recipes':activeCategory} · ${visible.length} ${visible.length===1?'recipe':'recipes'}`;
   el('emptyState').hidden=visible.length>0;
   setActiveChip();
 }
 function toggleSaved(id){ const r=recipes.find(item=>item.id===id); if(!r)return; if(saved.has(id)){saved.delete(id);notify('Removed from your saved recipes.');}else{saved.add(id);notify('Recipe saved.');}persistSaved();renderRecipes();if(currentRecipe?.id===id) updateModalSave(); }
-function modalMarkup(r){return `<img class="modal-cover" src="${imageFor(r,1250)}" alt="Food photography illustrating ${r.name}" onerror="this.onerror=null;this.src='${fallbackFor(r)}'" /><div class="modal-inner"><p class="kicker">${r.category.toUpperCase()} / ${r.label}</p><h2>${r.name}</h2><p class="modal-intro">${r.desc}</p><div class="modal-tags"><span>◷ ${r.time}</span><span>◌ ${r.servings}</span><span>✳ No onion or garlic</span><span>♧ Vegetarian</span></div><div class="modal-cols"><div><h3>What you'll need.</h3><ul class="ingredients">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div><div><h3>Let's make it.</h3><ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="modal-tip"><strong>A little kitchen note:</strong> ${r.tip}</div></div></div><div class="modal-actions"><button type="button" class="btn btn-primary" id="modalSave">${saved.has(r.id)?'♥ Saved recipe':'♡ Save this recipe'}</button><button type="button" class="outline-btn" id="printRecipe">Print recipe ↗</button></div></div>`;}
+function modalMarkup(r){return `<div class="modal-cover-photo"><img class="modal-cover" src="${imageFor(r,1250)}" alt="Food photography illustrating ${r.name}" onerror="photoUnavailable(this)" /></div><div class="modal-inner"><p class="recipe-photo-credit">Photo: <a href="${r.source}" target="_blank" rel="noopener noreferrer">${r.photographer || 'Photographer source'} ↗</a> · Illustration of the dish; not a photograph of our tested recipe.</p><p class="kicker">${r.category.toUpperCase()} / ${r.label}</p><h2>${r.name}</h2><p class="modal-intro">${r.desc}</p><div class="modal-tags"><span>◷ ${r.time}</span><span>◌ ${r.servings}</span><span>✳ No onion or garlic</span><span>♧ Vegetarian</span></div><div class="modal-cols"><div><h3>What you'll need.</h3><ul class="ingredients">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div><div><h3>Let's make it.</h3><ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="modal-tip"><strong>A little kitchen note:</strong> ${r.tip}</div></div></div><div class="modal-actions"><button type="button" class="btn btn-primary" id="modalSave">${saved.has(r.id)?'♥ Saved recipe':'♡ Save this recipe'}</button><button type="button" class="outline-btn" id="printRecipe">Print recipe ↗</button></div></div>`;}
 function updateModalSave(){const button=el('modalSave');if(currentRecipe&&button)button.textContent=saved.has(currentRecipe.id)?'♥ Saved recipe':'♡ Save this recipe';}
 function openModal(id){const r=recipes.find(item=>item.id===id);if(!r)return;lastFocus=document.activeElement;currentRecipe=r;el('modalBody').innerHTML=modalMarkup(r);el('modalBackdrop').hidden=false;el('recipeModal').hidden=false;el('recipeModal').setAttribute('aria-hidden','false');el('recipeModal').scrollTop=0;document.body.classList.add('modal-open');el('modalClose').focus();}
 function closeModal(){if(el('recipeModal').hidden)return;el('modalBackdrop').hidden=true;el('recipeModal').hidden=true;el('recipeModal').setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');currentRecipe=null;if(lastFocus&&document.contains(lastFocus))lastFocus.focus();}
-function pickMenu(){const choose=(category)=>{const pool=recipes.filter(r=>r.category===category);return pool[Math.floor(Math.random()*pool.length)];};const picks=[['Morning',choose('Breakfast')],['Midday',choose('Mains')],['A little snack',choose('Snacks')]];el('dailyPlan').innerHTML=`<div class="daily-plan-header"><h3>A little menu, just for today.</h3><span class="kicker">FRESH IDEAS ✳</span></div><div class="day-grid">${picks.map(([name,r])=>`<button type="button" class="day-pick" data-open="${r.id}"><img alt="${r.name}" src="${imageFor(r,280)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackFor(r)}'"><span><small>${name}</small><strong>${r.name}</strong></span></button>`).join('')}</div>`;el('dailyPlan').hidden=false;el('dailyPlan').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function pickMenu(){const choose=(category)=>{const pool=recipes.filter(r=>r.category===category);return pool[Math.floor(Math.random()*pool.length)];};const picks=[['Morning',choose('Breakfast')],['Midday',choose('Mains')],['A little snack',choose('Snacks')]];el('dailyPlan').innerHTML=`<div class="daily-plan-header"><h3>A little menu, just for today.</h3><span class="kicker">FRESH IDEAS ✳</span></div><div class="day-grid">${picks.map(([name,r])=>`<button type="button" class="day-pick" data-open="${r.id}"><img alt="${r.name}" src="${imageFor(r,280)}" loading="lazy" onerror="photoUnavailable(this)"><span><small>${name}</small><strong>${r.name}</strong></span></button>`).join('')}</div>`;el('dailyPlan').hidden=false;el('dailyPlan').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function resetFilters(){savedOnly=false;activeCategory='All';searchInput.value='';renderRecipes();}
 
 // Delegated actions also work after cards are re-rendered.
