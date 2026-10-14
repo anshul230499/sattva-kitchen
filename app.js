@@ -3,17 +3,17 @@ const photo = (id, width = 900) => `https://images.unsplash.com/${id}?auto=forma
 const recipes = [
 {
   "id": "mango-lassi",
-  "name": "Golden Mango Lassi",
+  "name": "Mango Lassi",
   "category": "Drinks",
   "label": "THE SUNNY FAVORITE",
   "time": "10 min",
   "minutes": 10,
   "servings": "2 tall glasses",
   "difficulty": "No-cook",
-  "imageUrl": "assets/mango-lassi-feature.webp",
-  "source": "",
-  "photographer": "Sattva Kitchen / original AI illustration",
-  "desc": "Velvety ripe mango, creamy yogurt and a whisper of cardamom. Like sunshine in a glass.",
+  "imageUrl": "https://images.pexels.com/photos/14930476/pexels-photo-14930476.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "photographer": "Shameel mukkath / Pexels",
+  "source": "https://www.pexels.com/photo/mango-lassi-recipe-14930476/",
+  "desc": "Velvety ripe mango, creamy yogurt and a whisper of cardamom. A simple, cool drink for ripe mango season.",
   "ingredients": [
     "1½ cups ripe mango flesh (fresh or thawed frozen)",
     "1 cup plain unsweetened yogurt",
@@ -127,16 +127,16 @@ const recipes = [
 },
 {
   "id": "sabudana-tikki",
-  "name": "Crisp Sabudana Tikki",
+  "name": "Sabudana Tikki",
   "category": "Snacks",
   "label": "GOLDEN LITTLE BITES",
   "time": "30 min",
   "minutes": 30,
   "servings": "8 small tikkis",
   "difficulty": "Easy, plus soaking",
-  "imageUrl": "assets/sabudana-tikki.webp",
-  "source": "",
-  "photographer": "Sattva Kitchen / original AI illustration",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Food_-_sabudana_vada_1c.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Food_-_sabudana_vada_1c.jpg",
+  "photographer": "Babu iyer / Wikimedia Commons CC BY-SA 4.0",
   "desc": "Crisp golden tapioca and potato patties with peanuts, cumin, and fresh coriander.",
   "ingredients": [
     "¾ cup sabudana (tapioca pearls)",
@@ -193,7 +193,7 @@ const recipes = [
 },
 {
   "id": "paneer-tikka",
-  "name": "Sunshine Paneer Tikka Bites",
+  "name": "Paneer Tikka Bites",
   "category": "Snacks",
   "label": "THE SHARING PLATE",
   "time": "30 min",
@@ -228,7 +228,7 @@ const recipes = [
 },
 {
   "id": "mango-shrikhand",
-  "name": "Silky Mango Shrikhand",
+  "name": "Mango Shrikhand",
   "category": "Sweets",
   "label": "SPOONFUL OF SUNSHINE",
   "time": "15 min",
@@ -258,7 +258,7 @@ const recipes = [
 },
 {
   "id": "rice-kheer",
-  "name": "Slow-Simmered Saffron Kheer",
+  "name": "Saffron Rice Kheer",
   "category": "Sweets",
   "label": "AN OLD FAVORITE",
   "time": "45 min",
@@ -290,7 +290,7 @@ const recipes = [
 },
 {
   "id": "coconut-peda",
-  "name": "Coconut & Pistachio Peda",
+  "name": "Coconut Pistachio Peda",
   "category": "Sweets",
   "label": "A LITTLE CELEBRATION",
   "time": "25 min",
@@ -323,7 +323,7 @@ const recipes = [
 },
 {
   "id": "vegetable-upma",
-  "name": "Garden Vegetable Upma",
+  "name": "Vegetable Upma",
   "category": "Breakfast",
   "label": "SUNLIT MORNING",
   "time": "25 min",
@@ -416,7 +416,7 @@ const recipes = [
     tip: 'Test one after roasting: a properly crisp makhana should snap rather than bend.'
   },
   {
-    id: 'idli', name: 'Cloud-Soft Idli & Coconut Chutney', category: 'Breakfast', label: 'SOUTHERN COMFORT', time: '25 min*', minutes: 25, servings: '8 small idlis', difficulty: 'Easy with prepared batter',
+    id: 'idli', name: 'Steamed Idli & Coconut Chutney', category: 'Breakfast', label: 'SOUTHERN COMFORT', time: '25 min*', minutes: 25, servings: '8 small idlis', difficulty: 'Easy with prepared batter',
     image: 'photo-1741376509109-e9edd6f24f5f', source: 'https://unsplash.com/photos/idli-with-various-chutneys-served-on-a-banana-leaf-V0pCYv4_ZZ0', photographer: 'Mayur Roxan',
     desc: 'Fluffy steamed idlis with a mild, fresh coconut-coriander chutney.',
     ingredients: ['2 cups plain fermented idli batter (prepared in advance; no onion or garlic)','A little oil for greasing','½ cup freshly grated coconut','2 tbsp roasted chana dal','¼ cup water, as needed','2 tbsp chopped coriander','Salt to taste','½ tsp lemon juice'],
@@ -456,7 +456,7 @@ const recipes = [
     tip: 'For a dairy-free version, replace paneer with firm tofu and ghee with oil. Some sattvic traditions do not include soy, so adapt to your preference.'
   },
   {
-    id: 'laddoo', name: 'Coconut & Date Little Laddoos', category: 'Sweets', label: 'NATURALLY SWEET', time: '15 min', minutes: 15, servings: '10 small laddoos', difficulty: 'No-cook',
+    id: 'laddoo', name: 'Coconut & Date Laddoos', category: 'Sweets', label: 'NATURALLY SWEET', time: '15 min', minutes: 15, servings: '10 small laddoos', difficulty: 'No-cook',
     image: 'photo-1776722089433-3513d173f5ee', source: 'https://unsplash.com/photos/sweet-coconut-balls-topped-with-white-cream-PzbjGm6EPhE', photographer: 'Jonathan Borba',
     desc: 'Soft little sweet bites made with dates, coconut, and fragrant green cardamom.',
     ingredients: ['1 cup pitted soft dates','¾ cup unsweetened desiccated coconut, plus extra to roll','¼ cup blanched almonds','¼ tsp ground cardamom','1 tsp ghee or coconut oil if needed'],
@@ -510,12 +510,12 @@ function setActiveChip() { filters.forEach(b=>{const active=!savedOnly && b.data
 function renderRecipes(){
   const query=searchInput.value.toLocaleLowerCase().trim();
   const visible=recipes.filter(r=>(!savedOnly&&(activeCategory==='All'||r.category===activeCategory)||savedOnly&&saved.has(r.id))&&(!query||`${r.name} ${r.desc} ${r.category} ${r.ingredients.join(' ')}`.toLowerCase().includes(query)));
-  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" alt="Food photography illustrating ${r.name}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackFor(r)}'"/><span class="recipe-tag">${r.new?'NEW · ':''}${r.category==='Mains'?'MAIN MEALS':r.category.toUpperCase()}</span><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.label}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>◷ &nbsp; ${r.time} &nbsp; · &nbsp; ${r.difficulty}</span><button type="button" data-open="${r.id}">View recipe ↗</button></div></div></article>`).join('');
+  recipeGrid.innerHTML=visible.map(r=>`<article class="recipe-card"><div class="recipe-image" data-open="${r.id}" role="button" tabindex="0" aria-label="Open ${r.name} recipe"><img src="${imageFor(r,700)}" alt="Food photograph illustrating ${r.name}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackFor(r)}'"/><button class="save-recipe ${saved.has(r.id)?'is-saved':''}" type="button" data-save="${r.id}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.name}" aria-pressed="${saved.has(r.id)}">${saved.has(r.id)?'♥':'♡'}</button></div><div class="recipe-body"><div class="recipe-eyebrow">${r.category==='Mains'?'MEALS':r.category.toUpperCase()} &nbsp; / &nbsp; ${r.time}</div><h3 class="recipe-title" data-open="${r.id}" role="button" tabindex="0">${r.name}</h3><p class="recipe-desc">${r.desc}</p><div class="recipe-meta"><span>${r.difficulty} &nbsp; · &nbsp; ${r.servings}</span><button type="button" data-open="${r.id}">Read recipe ↗</button></div></div></article>`).join('');
   el('resultsLine').textContent=`${savedOnly?'Your saved recipes':activeCategory==='All'?'All recipes':activeCategory} · ${visible.length} ${visible.length===1?'recipe':'recipes'}`;
   el('emptyState').hidden=visible.length>0;
   setActiveChip();
 }
-function toggleSaved(id){ const r=recipes.find(item=>item.id===id); if(!r)return; if(saved.has(id)){saved.delete(id);notify('Removed from your saved recipes.');}else{saved.add(id);notify('Saved for another lovely day.');}persistSaved();renderRecipes();if(currentRecipe?.id===id) updateModalSave(); }
+function toggleSaved(id){ const r=recipes.find(item=>item.id===id); if(!r)return; if(saved.has(id)){saved.delete(id);notify('Removed from your saved recipes.');}else{saved.add(id);notify('Recipe saved.');}persistSaved();renderRecipes();if(currentRecipe?.id===id) updateModalSave(); }
 function modalMarkup(r){return `<img class="modal-cover" src="${imageFor(r,1250)}" alt="Food photography illustrating ${r.name}" onerror="this.onerror=null;this.src='${fallbackFor(r)}'" /><div class="modal-inner"><p class="kicker">${r.category.toUpperCase()} / ${r.label}</p><h2>${r.name}</h2><p class="modal-intro">${r.desc}</p><div class="modal-tags"><span>◷ ${r.time}</span><span>◌ ${r.servings}</span><span>✳ No onion or garlic</span><span>♧ Vegetarian</span></div><div class="modal-cols"><div><h3>What you'll need.</h3><ul class="ingredients">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul></div><div><h3>Let's make it.</h3><ol class="steps">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol><div class="modal-tip"><strong>A little kitchen note:</strong> ${r.tip}</div></div></div><div class="modal-actions"><button type="button" class="btn btn-primary" id="modalSave">${saved.has(r.id)?'♥ Saved recipe':'♡ Save this recipe'}</button><button type="button" class="outline-btn" id="printRecipe">Print recipe ↗</button></div></div>`;}
 function updateModalSave(){const button=el('modalSave');if(currentRecipe&&button)button.textContent=saved.has(currentRecipe.id)?'♥ Saved recipe':'♡ Save this recipe';}
 function openModal(id){const r=recipes.find(item=>item.id===id);if(!r)return;lastFocus=document.activeElement;currentRecipe=r;el('modalBody').innerHTML=modalMarkup(r);el('modalBackdrop').hidden=false;el('recipeModal').hidden=false;el('recipeModal').setAttribute('aria-hidden','false');el('recipeModal').scrollTop=0;document.body.classList.add('modal-open');el('modalClose').focus();}

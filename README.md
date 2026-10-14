@@ -1,45 +1,29 @@
-# Sattva Kitchen — The Quiet Kitchen
+# Sattva Kitchen — Editorial Edition
 
-A fully functional responsive vegetarian sattvic recipe website. No build tools or dependencies needed.
+A minimalist, responsive vegetarian recipe journal. Static HTML, CSS, and JavaScript; no build step or framework required.
 
-## Features
+## What's included
 
-- Elegant editorial homepage and collections
-- New mango-lassi spotlight with sunny editorial food illustration
-- 12 additional full recipes: mango lassi, rose lassi, saffron milk, chaas, sabudana tikki, sweet potato chaat, paneer tikka, mango shrikhand, saffron kheer, coconut peda, upma and lemon rice
-- 24 vegetarian, no-onion, no-garlic recipes with real ingredients and directions
-- Category filters and ingredient/name search
-- Favorite recipes saved locally in the visitor's browser (localStorage)
-- Recipe-detail dialog with print button, keyboard and Escape handling
-- A random morning / midday / snack menu generator
-- Responsive layouts for phone, tablet, and desktop
-- Original, locally hosted Sunday-morning visual assets for the hero and collection cards
-- Unsplash recipe photography with photographer credits and source links
+- Editorial redesign with variable-sized food imagery, lighter Abadi-inspired type, asymmetric composition, a pared-back recipe index, and more specific copy.
+- 24 vegetarian onion- and garlic-free recipes, including mango lassi, khichdi, paneer, poha, sweets, and snacks.
+- Recipe search, category filters, saved recipes (browser localStorage), complete recipe details, print view, and a random meal-picker.
+- New photographs on the homepage from Pexels / Unsplash. Original photo credits link to individual photographers in `credits.html`.
 
-## Run locally
+## Running the site
 
-Open `index.html` in a browser. For local development, optionally run:
+Double-click `index.html` to preview, or run `python -m http.server 8080` inside this folder and open http://localhost:8080.
 
-```bash
-python -m http.server 8080
-```
+## GitHub and Vercel
 
-Then visit http://localhost:8080.
+Upload the entire contents of this folder to a GitHub repo named `sattva-kitchen`, then import it as a Vercel project. Choose **Other** as the framework preset. No build or output directory configuration is required.
 
-## Deploy using GitHub + Vercel
+## Photo and content notes
 
-1. Create a new GitHub repository (e.g. `sattva-kitchen`).
-2. Upload `index.html`, `styles.css`, `app.js`, `credits.html`, `credits.js` and this README to the root.
-3. On Vercel choose **Add New → Project**, import the repository, select framework **Other**, and deploy. No build command required.
-4. Every subsequent GitHub push will update the Vercel site automatically.
+- This version prioritizes actual published food photography and credits photographers. Some food photos are illustrative of the dish rather than precise reproductions; recipe text and photographs are not represented as original cooking/test photography.
+- Most photos are remotely hosted by Pexels and Unsplash and need an internet connection. A limited number of locally bundled AI-generated fallback illustrations, inherited from earlier versions of the website, remain for offline/error scenarios. Replace those with personally photographed dishes for the most authentic result.
+- Recipe traditions vary. These are onion- and garlic-free vegetarian recipes, not authoritative definitions of every sattvic dietary rule. Some traditions avoid yogurt, fermentation, specific spices, or combining fruit and dairy.
+- Text and design are editable and not linked to a paid service. No analytics or user tracking.
 
-## Notes
+## Fonts
 
-- Hero, collection, and illustrated mango-lassi feature imagery is locally included under `assets/` and does not require an internet connection. Some recipe photos are loaded remotely from Unsplash and Pexels and require an internet connection. The photo credits page contains photographer links and the photo source URLs. Photos are illustrative, not the specific recipes prepared here.
-- Recipes draw from multiple sattvic approaches. Customs differ, particularly around fermentation, dairy, fruit pairings, and spices. Adjust to your tradition. No medical or nutritional claims are intended.
-- There is no mailing list, server, payments, or analytics. Saved recipes exist only in each visitor's browser.
-- Original website concept, code and recipe text can be edited freely. Respect third-party photography rights.
-
-## Type system
-
-The typography is inspired by Abadi Light. If Abadi is installed on a visitor's device, the site uses it; otherwise it loads open-source Jost (300–600 weights) from Google Fonts. This keeps the intended airy look without packaging or redistributing the commercial Abadi font.
+Uses system Abadi if installed, otherwise the web font Jost at light weights. No Abadi font files are included.

@@ -1,101 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fcfaf5" />
-  <meta name="description" content="Sattva Kitchen: beautiful, simple vegetarian sattvic recipes without onion or garlic. Discover mango lassi, soulful breakfasts, nourishing meals, snacks and sweets." />
-  <meta property="og:title" content="Sattva Kitchen — Food for a quieter kind of day" />
-  <meta property="og:description" content="Mango lassi, sunshine snacks, creamy desserts and simple no-onion, no-garlic vegetarian recipes." />
-  <title>Sattva Kitchen — Food for a quieter kind of day</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8f7f3" />
+  <meta name="description" content="Sattva Kitchen is a quiet, practical recipe journal of simple vegetarian meals and snacks made without onion or garlic. Mango lassi, khichdi, chai and more." />
+  <meta property="og:title" content="Sattva Kitchen — Things worth making" />
+  <meta property="og:description" content="An everyday journal of good vegetarian food. Simple ingredients, useful recipes, a little time at the table." />
+  <title>Sattva Kitchen — Things worth making</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="announcement">THE QUIET KITCHEN <span aria-hidden="true">✦</span> PURE VEGETARIAN · NO ONION, NO GARLIC <span aria-hidden="true">✦</span> SIMPLE FOOD, BEAUTIFULLY MADE</div>
   <header class="site-header" id="top">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Sattva Kitchen, home">
-        <span class="brand-flower" aria-hidden="true">❦</span>
-        <span class="brand-word"><strong>Sattva Kitchen</strong><small>THE QUIET KITCHEN</small></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#recipes">The recipes</a>
-        <a href="#collections">Collections</a>
-        <a href="#philosophy">Our philosophy</a>
-        <a href="#ritual">A little ritual</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="saved-nav" id="savedButton" type="button" aria-label="Show saved recipes"><span class="icon-heart">♡</span> <span>Saved</span> <span class="saved-number" id="savedCount">0</span></button>
-        <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileNav" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
-      </div>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Sattva Kitchen home"><span class="brand-mark" aria-hidden="true">s.</span><span class="brand-name">sattva kitchen <small>THE RECIPE JOURNAL</small></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#recipes">Recipes</a><a href="#feature">In season</a><a href="#philosophy">Our approach</a></nav>
+      <div class="nav-actions"><button class="saved-nav" id="savedButton" type="button" aria-label="Show saved recipes" aria-pressed="false"><span aria-hidden="true">♡</span> Saved <span id="savedCount">0</span></button><button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" type="button"><span></span><span></span><span></span></button></div>
     </div>
-    <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#recipes">The recipes</a><a href="#collections">Collections</a><a href="#philosophy">Our philosophy</a><a href="#ritual">A little ritual</a>
-    </nav>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden><a href="#recipes">Recipes</a><a href="#feature">In season</a><a href="#philosophy">Our approach</a></nav>
   </header>
 
   <main>
     <section class="hero container" aria-labelledby="hero-heading">
-      <div class="hero-text">
-        <div class="eyebrow"><span class="eyebrow-line"></span> AN INVITATION TO SLOW DOWN</div>
-        <h1 id="hero-heading">A little sunlight.<br />A little <em>sattva.</em></h1>
-        <p class="hero-description">The ease of a Sunday morning, gathered around a sunlit table. Thoughtful vegetarian food, made simply, to bring a little beauty to every day.</p>
-        <div class="hero-buttons"><a class="btn btn-primary" href="#recipes">Explore the recipes <span aria-hidden="true">↗</span></a><a class="text-link" href="#philosophy">What is sattvic? <span aria-hidden="true">→</span></a></div>
-        <div class="hero-signature"><div class="little-sun" aria-hidden="true">✺</div><p><strong>A Sunday feeling, every day.</strong><br/><span>Fresh ingredients. Gentle flavors. Good company.</span></p></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="small-rule"></span> A VEGETARIAN RECIPE JOURNAL <span class="dot">·</span> 01</div>
+        <h1 id="hero-heading">Good food.<br/>Nothing <em>fussy.</em></h1>
+        <p>For the mornings when you have time, and the evenings when you don't. A collection of vegetarian things worth making — with no onion or garlic.</p>
+        <a class="under-link" href="#recipes">Find something to cook <span aria-hidden="true">↗</span></a>
+        <div class="hero-foot"><span class="handdrawn-sun" aria-hidden="true">✳</span><span>A slower start to the day,<br/>whenever you can manage one.</span></div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-photo-wrap"><img class="hero-photo" src="assets/sunday-table-hero.webp" alt="A sunlit white kitchen table with a ceramic bowl of fruit-topped oats, fresh flowers, chai and linen" fetchpriority="high" /></div>
-        <div class="hero-doodle" aria-hidden="true">✳</div>
-        <div class="hero-note"><span class="note-leaf">❋</span><span><small>THE SUNDAY TABLE</small><strong>Stay a while.<br />Eat beautifully.</strong></span></div>
-        <div class="photo-caption">SLOW FOOD · WARM SUNLIGHT · GOOD COMPANY</div>
+      <div class="hero-media">
+        <figure class="hero-main-photo"><img src="https://images.pexels.com/photos/5946612/pexels-photo-5946612.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="A real photograph of masala chai with spices on a pale linen-covered table" fetchpriority="high" onerror="this.onerror=null;this.src='assets/drinks.webp'"/><figcaption>First things first: a good cup of chai.</figcaption></figure>
+        <figure class="hero-small-photo"><img src="https://images.unsplash.com/photo-1715098841757-0e9690ec12d6?auto=format&fit=crop&w=650&q=82" alt="Banana-topped oatmeal in a bowl" loading="lazy" onerror="this.onerror=null;this.src='assets/breakfast.webp'"/><figcaption>Something warm for breakfast.</figcaption></figure>
       </div>
     </section>
 
-    <section class="values-ribbon" aria-label="Our approach"><div class="container values-inner"><span>FRESH & SEASONAL</span><b>✦</b><span>GENTLY SPICED</span><b>✦</b><span>MADE WITH INTENTION</span><b>✦</b><span>EVERYDAY VEGETARIAN</span></div></section>
+    <section class="newsstrip" aria-label="About this collection"><div class="container newsstrip-inner"><span>NO ONION. NO GARLIC.</span><span class="newsstrip-star">✳</span><span>GENTLE ON THE SPICE</span><span class="newsstrip-star">✳</span><span>GOOD ON THE TABLE</span></div></section>
+
+    <section class="feature container section" id="feature" aria-labelledby="feature-title">
+      <div class="section-heading"><p class="kicker">01 &nbsp; / &nbsp; IN SEASON</p><p class="margin-note">Start here ↓</p></div>
+      <div class="feature-layout">
+        <figure class="feature-photo"><img src="https://images.pexels.com/photos/14930476/pexels-photo-14930476.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Photograph of a chilled mango lassi with saffron garnish" loading="lazy" onerror="this.onerror=null;this.src='assets/mango-lassi-feature.webp'"/><figcaption>Ripe mangoes make all the difference.</figcaption></figure>
+        <div class="feature-copy"><div class="feature-overline">THE RECIPE WE'RE MAKING</div><h2 id="feature-title">Mango <em>lassi</em></h2><p class="feature-deck">Ripe mango, cold yogurt, a pinch of cardamom. That's really all it needs.</p><div class="feature-rule"></div><p>This one takes about ten minutes and tastes best while it's still cool from the blender. Start with a sweet mango and you may not need any extra sugar at all.</p><div class="feature-info"><span>10 minutes</span><span>6 ingredients</span><span>2 glasses</span></div><button class="under-link" type="button" data-open="mango-lassi">Read the recipe <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
 
     <section class="collections section container" id="collections" aria-labelledby="collections-title">
-      <div class="section-top"><div><p class="kicker">THE SUNDAY TABLE / COLLECTIONS</p><h2 id="collections-title">Wholesome food for <em>every moment.</em></h2></div><p class="section-lede">From first light to a quiet cup of evening chai. Consider this your invitation to savor the small things.</p></div>
-      <div class="collection-grid">
-        <button class="collection-card" type="button" data-category="Breakfast"><img src="assets/breakfast.webp" alt="Fruit and yogurt breakfast bowl in pale ceramic on a white sunlit table" loading="lazy"/><span class="collection-content"><small>01 · NOURISHING STARTS</small><strong>Breakfast</strong><span>Slow down and begin beautifully <b>↗</b></span></span></button>
-        <button class="collection-card" type="button" data-category="Mains"><img src="assets/mains.webp" alt="A colorful vegetarian vegetable and grain bowl styled in natural morning light" loading="lazy"/><span class="collection-content"><small>02 · AT THE TABLE</small><strong>Main meals</strong><span>Wholesome everyday favorites <b>↗</b></span></span></button>
-        <button class="collection-card" type="button" data-category="Snacks"><img src="assets/snacks.webp" alt="Homemade date and nut energy bites on a small ceramic plate" loading="lazy"/><span class="collection-content"><small>03 · LITTLE PAUSES</small><strong>Snacks</strong><span>Something lovely in between <b>↗</b></span></span></button>
-        <button class="collection-card" type="button" data-category="Sweets"><img src="assets/sweets.webp" alt="Delicate saffron dessert in a white ceramic bowl with rose petals" loading="lazy"/><span class="collection-content"><small>04 · SWEETLY MADE</small><strong>Sweets</strong><span>A little everyday indulgence <b>↗</b></span></span></button>
-        <button class="collection-card" type="button" data-category="Drinks"><img src="assets/drinks.webp" alt="Warm golden spiced milk in a pottery cup surrounded by linen" loading="lazy"/><span class="collection-content"><small>05 · SIP SLOWLY</small><strong>Drinks</strong><span>Pour yourself a quiet moment <b>↗</b></span></span></button>
+      <div class="section-heading"><p class="kicker">02 &nbsp; / &nbsp; WHAT ARE YOU HUNGRY FOR?</p></div>
+      <div class="collections-heading"><h2 id="collections-title">A little of <em>everything.</em></h2><p>Breakfast, proper lunches, things to nibble on, and something sweet afterwards.</p></div>
+      <div class="collection-list" role="group" aria-label="Browse recipe types">
+        <button class="collection-card" type="button" data-category="Breakfast"><span class="collection-index">01</span><strong>Breakfast</strong><span class="collection-action">↗</span></button>
+        <button class="collection-card" type="button" data-category="Mains"><span class="collection-index">02</span><strong>Lunch & dinner</strong><span class="collection-action">↗</span></button>
+        <button class="collection-card" type="button" data-category="Snacks"><span class="collection-index">03</span><strong>Little bites</strong><span class="collection-action">↗</span></button>
+        <button class="collection-card" type="button" data-category="Sweets"><span class="collection-index">04</span><strong>Something sweet</strong><span class="collection-action">↗</span></button>
+        <button class="collection-card" type="button" data-category="Drinks"><span class="collection-index">05</span><strong>To drink</strong><span class="collection-action">↗</span></button>
       </div>
     </section>
 
+    <section class="recipes-section section" id="recipes" aria-labelledby="recipes-title"><div class="container">
+      <div class="section-heading"><p class="kicker">03 &nbsp; / &nbsp; THE RECIPE INDEX</p><span class="count-ornament"><span>24</span> recipes so far</span></div>
+      <div class="recipe-intro"><h2 id="recipes-title">Things worth <em>making.</em></h2><p>Save the ones you like. Change what you need. Come back when you're hungry.</p></div>
+      <div class="recipe-toolbar"><div class="filters" role="group" aria-label="Filter recipes"><button class="filter-chip active" type="button" data-filter="All" aria-pressed="true">All</button><button class="filter-chip" type="button" data-filter="Breakfast" aria-pressed="false">Breakfast</button><button class="filter-chip" type="button" data-filter="Mains" aria-pressed="false">Meals</button><button class="filter-chip" type="button" data-filter="Snacks" aria-pressed="false">Snacks</button><button class="filter-chip" type="button" data-filter="Sweets" aria-pressed="false">Sweets</button><button class="filter-chip" type="button" data-filter="Drinks" aria-pressed="false">Drinks</button></div><label class="search-bar"><span aria-hidden="true">⌕</span><span class="sr-only">Search recipes</span><input id="recipeSearch" type="search" placeholder="Search by dish or ingredient" autocomplete="off" /></label></div>
+      <div class="results-line" id="resultsLine" aria-live="polite">24 recipes</div><div class="recipe-grid" id="recipeGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><h3>Nothing quite like that yet.</h3><p>Try another ingredient, or start from the beginning.</p><button id="clearFilters" class="under-link" type="button">Show all recipes ↗</button></div>
+    </div></section>
 
-    <section class="featured-section" aria-labelledby="featured-title">
-      <div class="container featured-layout">
-        <div class="featured-visual"><img src="assets/mango-lassi-feature.webp" alt="Tall golden mango lassi in a glass on a bright kitchen table with fresh fruit and gentle Sunday sunlight" loading="lazy"/><span class="featured-seal">NEW IN THE KITCHEN <b>✳</b></span></div>
-        <div class="featured-copy"><p class="kicker">THE SUNDAY SPECIAL / SOMETHING DELICIOUS</p><div class="feature-number">01 / 12</div><h2 id="featured-title">Meet your new <em>sunshine sip.</em></h2><p class="featured-name">Golden Mango Lassi</p><p class="featured-description">Ripe mango. Cool, creamy yogurt. Just enough cardamom. Ten minutes, two glasses, and a golden little pause in your day.</p><div class="featured-meta"><span>◷ &nbsp; 10 MINUTES</span><span>✳ &nbsp; 6 INGREDIENTS</span><span>♡ &nbsp; MADE WITH CARE</span></div><button type="button" class="btn btn-primary" data-open="mango-lassi">Make the mango lassi <span aria-hidden="true">↗</span></button><div class="featured-aside">Also new: rose lassi · sabudana tikki · mango shrikhand · saffron kheer</div></div>
-      </div>
-    </section>
+    <section class="philosophy-section" id="philosophy" aria-labelledby="philosophy-heading"><div class="container philosophy-layout"><div class="philosophy-aside"><p class="kicker">A NOTE FROM THE KITCHEN</p><h2 id="philosophy-heading">What does <em>sattvic</em> mean here?</h2><p>Sattva is associated with clarity, steadiness and balance in Indian philosophy. In cooking, traditions often emphasize freshness, simplicity and care.</p><p>These are vegetarian recipes made without onion or garlic. They're inspired by that approach, rather than a strict guide to every interpretation of sattvic food. Dairy, fermented foods and certain ingredients are viewed differently across traditions.</p><a class="under-link" href="#recipes">Back to the recipes ↗</a></div><figure class="philosophy-image"><img src="https://images.pexels.com/photos/6363498/pexels-photo-6363498.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A hand adding fresh coriander to a bowl of khichdi" loading="lazy" onerror="this.onerror=null;this.src='assets/mains.webp'"/><figcaption>Nothing elaborate. Just a good meal, made carefully.</figcaption></figure></div></section>
 
-    <section class="recipes-section section" id="recipes" aria-labelledby="recipes-title">
-      <div class="container">
-        <div class="recipe-intro"><div><p class="kicker">THE RECIPE JOURNAL <span class="tiny-star">✳</span> ISSUE NO. 01</p><h2 id="recipes-title">From our kitchen, <em>to yours.</em></h2><p>Little plates, generous bowls, and nourishing bites. All vegetarian. All without onion or garlic.</p></div><div class="count-ornament"><span>24</span><small>GOOD THINGS<br/>TO MAKE</small></div></div>
-        <div class="recipe-toolbar"><div class="filters" role="group" aria-label="Filter recipes"><button type="button" class="filter-chip active" data-filter="All" aria-pressed="true">All recipes</button><button type="button" class="filter-chip" data-filter="Breakfast" aria-pressed="false">Breakfast</button><button type="button" class="filter-chip" data-filter="Mains" aria-pressed="false">Main meals</button><button type="button" class="filter-chip" data-filter="Snacks" aria-pressed="false">Snacks</button><button type="button" class="filter-chip" data-filter="Sweets" aria-pressed="false">Something sweet</button><button type="button" class="filter-chip" data-filter="Drinks" aria-pressed="false">Drinks</button></div><label class="search-bar"><span aria-hidden="true">⌕</span><span class="sr-only">Search recipes</span><input type="search" id="recipeSearch" placeholder="Search an ingredient or recipe..." autocomplete="off" /></label></div>
-        <div class="results-line" id="resultsLine" aria-live="polite">Showing all 24 recipes</div>
-        <div class="recipe-grid" id="recipeGrid"></div>
-        <div class="empty-state" id="emptyState" hidden><div class="empty-flower">❋</div><h3>Nothing in the bowl just yet.</h3><p>Try a different search or look through all the recipes.</p><button type="button" class="btn btn-primary" id="clearFilters">See all recipes ↗</button></div>
-      </div>
-    </section>
-
-    <section class="quote-section" id="philosophy" aria-labelledby="philosophy-heading"><div class="container quote-layout"><div class="quote-photo"><img src="assets/sunday-table-detail.webp" alt="Warm sunlight falling over a bowl of fruit-topped oats and a cup of chai on a white kitchen table" loading="lazy"/><span class="quote-photo-detail">THE BEAUTY OF THE EVERYDAY</span></div><div class="quote-copy"><p class="kicker">OUR LITTLE PHILOSOPHY</p><span class="quote-mark">“</span><h2 id="philosophy-heading">Simple food. <em>Beautiful living.</em></h2><p>Sattva is a Sanskrit word associated with clarity, harmony, and balance. In the kitchen, it invites us to choose fresh foods, cook thoughtfully, and enjoy what is on our plate.</p><p>Our recipes draw on Indian sattvic cooking traditions: vegetarian ingredients, gentle seasoning, and no onion or garlic. Traditions differ, so think of this as a welcoming starting point, not a rigid rulebook.</p><a href="#recipes" class="text-link philosophy-link">Find something lovely to make <span aria-hidden="true">↗</span></a></div></div></section>
-
-    <section class="ritual-section container section" id="ritual" aria-labelledby="ritual-heading"><div class="ritual-card"><div class="ritual-content"><p class="kicker">A LITTLE SUNDAY RITUAL</p><h2 id="ritual-heading">A little inspiration <em>for today.</em></h2><p>Can't decide? Let the kitchen surprise you with a gentle breakfast, a satisfying meal, and something small to snack on.</p><button id="planButton" class="btn btn-light" type="button">Make me a little menu <span aria-hidden="true">✳</span></button></div><div class="ritual-sun" aria-hidden="true">✺</div></div><div class="daily-plan" id="dailyPlan" hidden aria-live="polite"></div></section>
+    <section class="ritual-section container section" id="ritual" aria-labelledby="ritual-heading"><div class="ritual-layout"><div><p class="kicker">WHEN YOU CAN'T DECIDE</p><h2 id="ritual-heading">What's for <em>today?</em></h2></div><div><p>Let the recipe journal pick a breakfast, a proper meal and a snack for you. No fuss, no account needed.</p><button id="planButton" class="under-link" type="button">Pick my menu ↗</button></div></div><div class="daily-plan" id="dailyPlan" hidden aria-live="polite"></div></section>
   </main>
 
-  <footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><span class="brand-flower" aria-hidden="true">❦</span><div><strong>Sattva Kitchen</strong><span>THE QUIET KITCHEN</span></div></div><p>A little sunlight. A little stillness.<br />Something beautiful on the table.</p><a class="back-top" href="#top">Back to the top ↑</a></div><div class="footer-bottom"><span>© <span id="year">2026</span> SATTVA KITCHEN · MADE WITH INTENTION</span><span>Inspired by sattvic traditions. Dietary customs vary. Photography is illustrative. <a href="credits.html">Photo credits & sources ↗</a></span></div></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><a class="footer-logo" href="#top">sattva kitchen<span class="period">.</span></a><p>Recipes for real days.</p></div><div class="footer-links"><a href="#recipes">Recipes</a><a href="#philosophy">About</a><a href="credits.html">Photo credits</a><a href="#top">Back to top ↑</a></div></div><div class="footer-bottom"><span>© <span id="year">2026</span> Sattva Kitchen</span><span>An independent vegetarian recipe collection. Food photography is credited and may illustrate rather than depict an exact recipe.</span></div></div></footer>
 
   <div id="modalBackdrop" class="modal-backdrop" hidden></div>
   <section class="recipe-modal" id="recipeModal" role="dialog" aria-modal="true" aria-label="Recipe details" aria-hidden="true" hidden><button class="modal-close" id="modalClose" type="button" aria-label="Close recipe">×</button><div id="modalBody"></div></section>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

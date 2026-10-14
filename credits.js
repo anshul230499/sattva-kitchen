@@ -1,4 +1,9 @@
 const credits = [
+ ['Babu iyer (CC BY-SA 4.0, cropped for layout)','Sabudana tikki photograph (Wikimedia Commons)','https://commons.wikimedia.org/wiki/File:Food_-_sabudana_vada_1c.jpg'],
+ ['Charlotte May','Homepage chai photograph','https://www.pexels.com/photo/masala-tea-with-spices-on-table-5946612/'],
+ ['Dimitris Asproloupos','Homepage banana oatmeal photograph','https://unsplash.com/photos/a-bowl-of-oatmeal-with-banana-slices-on-top-qzRVPgqSWn4'],
+ ['Shameel mukkath','Mango lassi hero and recipe photograph','https://www.pexels.com/photo/mango-lassi-recipe-14930476/'],
+ ['Thomas Nahar','Khichdi preparation photograph in the about section','https://www.pexels.com/photo/a-person-adding-coriander-leaves-on-a-spicy-khichdi-6363498/'],
  ['Alina Matveycheva','Illustrative photograph for Rose & Cardamom Lassi','https://www.pexels.com/photo/love-relaxation-summer-glass-17379741/'],
  ['Shameel mukkath','Illustrative photograph for Saffron & Almond Milk','https://www.pexels.com/photo/two-glasses-of-milk-with-cinnamon-and-nuts-15082977/'],
  ['Timur Weber','Illustrative photograph for Cucumber, Mint & Cumin Chaas','https://www.pexels.com/photo/drink-with-cucumber-slices-8679635/'],
